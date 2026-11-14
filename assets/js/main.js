@@ -80,6 +80,29 @@
     }).join('');
   }
 
+  // 参加者の声（空欄の項目は「準備中」表示）
+  var vList = $('.js-voices');
+  if (vList && C.voices) {
+    var silhouette = '<svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="24" r="12"/><path d="M10 58c2-13 11-20 22-20s20 7 22 20z"/></svg>';
+    vList.innerHTML = C.voices.map(function (v, i) {
+      var ready = !!(v.title || v.text);
+      var no = ('0' + (i + 1)).slice(-2);
+      return '<li class="voice-card reveal' + (ready ? '' : ' is-soon') + '" style="--d:' + (i * 0.12) + 's">' +
+        '<div class="voice-card__head">' +
+          '<span class="voice-card__no">VOICE ' + no + '</span>' +
+          (ready ? '' : '<span class="voice-card__soon">Coming soon</span>') +
+        '</div>' +
+        '<p class="voice-card__title">' + (v.title ? esc(v.title) : 'インタビュー準備中') + '</p>' +
+        '<p class="voice-card__text">' + (v.text ? esc(v.text) : '参加者の方へのインタビューを、近日公開予定です。<br>お楽しみに！') + '</p>' +
+        '<div class="voice-card__person">' +
+          '<div class="voice-card__photo">' + (v.photo ? '<img src="' + esc(v.photo) + '" alt="" loading="lazy" width="120" height="120">' : silhouette) + '</div>' +
+          '<div><p class="voice-card__name">' + (v.name ? esc(v.name) : 'お名前') + '</p>' +
+          '<p class="voice-card__profile">' + (v.profile ? esc(v.profile) : '年代・職種') + '</p></div>' +
+        '</div>' +
+      '</li>';
+    }).join('');
+  }
+
   /* ---------- toast ---------- */
   var toastEl = $('#toast'), toastTimer;
   function toast(msg) {
