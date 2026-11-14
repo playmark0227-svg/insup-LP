@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Insup Night | 職種をこえて、人生が動き出す食事交流会</title>
+  <meta name="description" content="Insup Nightは、職種をこえて気軽に集まる食事交流会。飲み放題＆ご飯付きで1,000円、定員10名。人生を変えたい方、転職に迷っている方、新しいつながりが欲しい方へ。会場はすすきの・Bar pochi。">
+  <meta name="theme-color" content="#0a1f52">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Insup Night | 職種をこえて、人生が動き出す食事交流会">
+  <meta property="og:description" content="飲み放題＆ご飯付き1,000円・定員10名。きっかけは木曜22時のテーブルから。">
+  <meta property="og:image" content="assets/img/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/img/insup-logo-mark.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;0,800;0,900;1,800;1,900&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header" id="header">
+    <a href="#top" class="header__logo" aria-label="Insup Night トップへ">
+      <img src="assets/img/insup-logo-type.webp" alt="Insup" width="96" height="36">
+      <span class="header__night">Night</span>
+    </a>
+    <div class="header__actions">
+      <button type="button" class="btn btn--ghost btn--sm js-open-dates">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+        <span>今月の開催日</span>
+      </button>
+      <a href="#apply" class="btn btn--primary btn--sm js-apply">申し込む</a>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ 起：HERO ============ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__bg" aria-hidden="true">
+        <span class="streak streak--1"></span>
+        <span class="streak streak--2"></span>
+        <span class="streak streak--3"></span>
+        <span class="streak streak--4"></span>
+        <span class="bubble bubble--1"></span>
+        <span class="bubble bubble--2"></span>
+        <span class="bubble bubble--3"></span>
+      </div>
+
+      <div class="hero__inner">
+        <p class="hero__tag anim-up">職種をこえて気軽に集まる、食事交流会</p>
+
+        <h1 class="hero__brand anim-up" style="--d:.1s">
+          <img src="assets/img/insup-logo-type.webp" alt="Insup" class="hero__brand-insup" width="300" height="113">
+          <span class="hero__brand-night">Night</span>
+        </h1>
+
+        <p class="hero__catch anim-up" id="hero-title" style="--d:.2s">
+          <span class="hero__catch-main">職種を超えて、<br class="sp">人生が動き出す。</span>
+          <span class="hero__catch-sub">きっかけは<em>木曜22時</em>のテーブルから</span>
+        </p>
+
+        <div class="hero__visual anim-up" style="--d:.3s">
+          <div class="hero__next" aria-live="polite">
+            <span class="hero__next-label">NEXT</span>
+            <span class="hero__next-date js-next-date">—</span>
+            <span class="hero__next-time">22:00〜24:00</span>
+          </div>
+          <img src="assets/img/hero-people.webp" alt="笑顔でサムズアップするInsupのメンバー3人" class="hero__people" width="940" height="355">
+          <div class="hero__band">
+            <span>一人参加・初参加も歓迎！</span>
+          </div>
+        </div>
+
+        <ul class="hero__badges anim-up" style="--d:.4s">
+          <li class="badge badge--price">
+            <span class="badge__label">飲み放題＆ご飯付き</span>
+            <span class="badge__value"><b>1,000</b>円</span>
+          </li>
+          <li class="badge">
+            <span class="badge__label">定員</span>
+            <span class="badge__value"><b>10</b>名</span>
+          </li>
+          <li class="badge">
+            <span class="badge__label">毎回</span>
+            <span class="badge__value badge__value--time"><b>22</b>時〜<b>24</b>時</span>
+          </li>
+        </ul>
+
+        <div class="hero__cta anim-up" style="--d:.5s" id="hero-cta">
+          <a href="#apply" class="btn btn--primary btn--xl js-apply">
+            <span>参加を申し込む</span>
+            <svg class="ico ico--arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <button type="button" class="btn btn--outline btn--lg js-open-dates">
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+            <span>今月の開催日を見る</span>
+          </button>
+        </div>
+      </div>
+
+      <a href="#worry" class="hero__scroll" aria-label="下へスクロール"><span>SCROLL</span></a>
+    </section>
+
+    <!-- ticker -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker__track">
+        <span>一人参加・初参加も歓迎</span><i>✦</i>
+        <span>飲み放題＆ご飯付き 1,000円</span><i>✦</i>
+        <span>定員10名の少人数制</span><i>✦</i>
+        <span>職種をこえた出会い</span><i>✦</i>
+        <span>Insupの仕事・採用紹介あり</span><i>✦</i>
+        <span>一人参加・初参加も歓迎</span><i>✦</i>
+        <span>飲み放題＆ご飯付き 1,000円</span><i>✦</i>
+        <span>定員10名の少人数制</span><i>✦</i>
+        <span>職種をこえた出会い</span><i>✦</i>
+        <span>Insupの仕事・採用紹介あり</span><i>✦</i>
+      </div>
+    </div>
+
+    <!-- ============ 承：WORRY ============ -->
+    <section class="sec worry" id="worry" aria-labelledby="worry-title">
+      <div class="container">
+        <header class="sec-head reveal">
+          <p class="sec-head__en">Do you feel like this?</p>
+          <h2 class="sec-head__ja" id="worry-title">こんな気持ち、<br class="sp">ありませんか？</h2>
+        </header>
+
+        <ul class="worry__list">
+          <li class="worry-card reveal">
+            <span class="worry-card__no">01</span>
+            <p class="worry-card__quote">「このままで、いいのかな」</p>
+            <p class="worry-card__text"><mark>人生を変えたい。</mark>でも、何から始めればいいかわからない。</p>
+          </li>
+          <li class="worry-card reveal" style="--d:.1s">
+            <span class="worry-card__no">02</span>
+            <p class="worry-card__quote">「転職、どうしよう…」</p>
+            <p class="worry-card__text"><mark>転職に迷っている。</mark>気持ちはあるのに、あと一歩が踏み出せない。</p>
+          </li>
+          <li class="worry-card reveal" style="--d:.2s">
+            <span class="worry-card__no">03</span>
+            <p class="worry-card__quote">「毎日、同じ顔ぶれ」</p>
+            <p class="worry-card__text"><mark>職種をこえて、</mark>新しい人とのつながりが欲しい。</p>
+          </li>
+        </ul>
+
+        <div class="worry__answer reveal">
+          <p class="worry__answer-lead">その答え、<br class="sp">ひとりで探さなくていい。</p>
+          <p class="worry__answer-main">美味しいご飯を食べながら、<br><span class="hl">話してみることから</span><br class="sp">始めませんか？</p>
+        </div>
+
+        <div class="inline-cta reveal">
+          <a href="#apply" class="btn btn--primary btn--lg js-apply"><span>Insup Nightに参加する</span><svg class="ico ico--arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <p class="inline-cta__note">定員10名・一人参加歓迎</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 転：POINT ============ -->
+    <section class="sec point" id="point" aria-labelledby="point-title">
+      <div class="point__deco" aria-hidden="true"></div>
+      <div class="container">
+        <header class="sec-head reveal">
+          <p class="sec-head__en">What is Insup Night?</p>
+          <h2 class="sec-head__ja" id="point-title"><span class="nowrap">Insup Nightで、</span><br class="sp">できること</h2>
+          <p class="sec-head__lead">ただの飲み会でも、堅苦しい説明会でもない。<br>人生が動き出す“きっかけ”が、ここにあります。</p>
+        </header>
+
+        <!-- 01 -->
+        <article class="point-item reveal">
+          <div class="point-item__media point-item__media--food">
+            <img src="assets/img/food-1.jpg" alt="バターチキンカレー" class="pf pf--1" loading="lazy" width="960" height="640">
+            <img src="assets/img/food-2.jpg" alt="牛肉のたたきとブロッコリーの唐揚げ" class="pf pf--2" loading="lazy" width="801" height="508">
+            <img src="assets/img/food-3.jpg" alt="カレイの塩焼き" class="pf pf--3" loading="lazy" width="800" height="512">
+            <span class="point-item__caption">※料理は一例です</span>
+          </div>
+          <div class="point-item__body">
+            <p class="point-item__no"><span>POINT</span>01</p>
+            <h3 class="point-item__title">美味しいご飯と<br>飲み放題で、<em>1,000円</em></h3>
+            <p class="point-item__text">Insupが飲食代の一部を負担しているから、この価格。<br class="pc">お腹も心も満たされる時間だから、初対面でも自然と会話が弾みます。</p>
+            <ul class="chips">
+              <li>飲み放題</li><li>ご飯付き</li><li>Insupが一部負担</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 02 -->
+        <article class="point-item point-item--rev reveal">
+          <div class="point-item__media point-item__media--meet">
+            <div class="meet">
+              <div class="meet__table" aria-hidden="true">
+                <span class="meet__seat" style="--i:0"></span><span class="meet__seat" style="--i:1"></span><span class="meet__seat" style="--i:2"></span><span class="meet__seat" style="--i:3"></span><span class="meet__seat" style="--i:4"></span>
+                <span class="meet__seat" style="--i:5"></span><span class="meet__seat" style="--i:6"></span><span class="meet__seat" style="--i:7"></span><span class="meet__seat" style="--i:8"></span><span class="meet__seat" style="--i:9"></span>
+                <div class="meet__center"><b>10</b><span>名限定</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="point-item__body">
+            <p class="point-item__no"><span>POINT</span>02</p>
+            <h3 class="point-item__title">職種をこえた、<br><em>新しい出会い</em></h3>
+            <p class="point-item__text">普段の生活では出会えない、さまざまな職種の人が集まります。<br class="pc">定員10名の少人数制だから、一人ひとりとじっくり話せるのも魅力です。</p>
+            <ul class="chips">
+              <li>定員10名</li><li>一人参加OK</li><li>初参加歓迎</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 03 -->
+        <article class="point-item point-item--career reveal">
+          <div class="point-item__media point-item__media--career">
+            <div class="career-visual">
+              <img src="assets/img/insup-logo-mark.webp" alt="" class="career-visual__mark" width="600" height="602" aria-hidden="true">
+              <div class="career-visual__words" aria-hidden="true">
+                <span>転職</span><span>キャリア</span><span>業務委託</span><span>新しい挑戦</span>
+              </div>
+            </div>
+          </div>
+          <div class="point-item__body">
+            <p class="point-item__no"><span>POINT</span>03</p>
+            <h3 class="point-item__title">Insupの仕事・<br>業務委託の話が<em>聞ける</em></h3>
+            <p class="point-item__text">「働き方を変えたい」「新しいことに挑戦したい」<br>そんな方には、Insupの仕事や業務委託についてもご紹介します。<br class="pc"><strong>応募は任意</strong>なので、まずは話を聞くだけでも大歓迎です。</p>
+            <a href="https://insup.co.jp/careers.html" class="btn btn--navy btn--md" target="_blank" rel="noopener">
+              <span>Insupの仕事を見る</span>
+              <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <div class="inline-cta reveal">
+          <a href="#apply" class="btn btn--primary btn--lg js-apply"><span>このテーブルに参加する</span><svg class="ico ico--arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <button type="button" class="link-btn js-open-dates">今月の開催日をチェック →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 転：PLACE ============ -->
+    <section class="sec place" id="place" aria-labelledby="place-title">
+      <div class="container">
+        <header class="sec-head sec-head--light reveal">
+          <p class="sec-head__en">Thursday 22:00 at Bar pochi</p>
+          <h2 class="sec-head__ja" id="place-title">木曜22時、<br class="sp">すすきのの地下で。</h2>
+          <p class="sec-head__lead">落ち着いた灯りのバーが、<br class="sp">Insup Nightのテーブルに。<br>肩の力を抜いて、ゆっくり話せる空間です。</p>
+        </header>
+
+        <div class="place__gallery reveal">
+          <figure class="place__ph place__ph--a"><img src="assets/img/pochi-counter.jpg" alt="Bar pochiのカウンター席" loading="lazy" width="800" height="1200"></figure>
+          <figure class="place__ph place__ph--b"><img src="assets/img/pochi-sofa.jpg" alt="Bar pochiのソファ席" loading="lazy" width="1200" height="800"></figure>
+          <figure class="place__ph place__ph--c"><img src="assets/img/pochi-hall.jpg" alt="Bar pochiの店内" loading="lazy" width="1200" height="800"></figure>
+        </div>
+
+        <div class="place__info reveal">
+          <div class="place__addr">
+            <svg class="ico ico--pin" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.6 7-12.5A7 7 0 0 0 5 9.5C5 15.4 12 22 12 22z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+            <div>
+              <p class="place__name">Bar pochi</p>
+              <p class="place__text">札幌市中央区南7条西4丁目2-7<br>ライトビルⅡ 地下1階</p>
+            </div>
+          </div>
+          <div class="place__btns">
+            <a href="https://www.pochi-susukino.com/" class="btn btn--white btn--md" target="_blank" rel="noopener">
+              <span>お店の雰囲気・ご飯を見る</span>
+              <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
+            </a>
+            <a href="https://www.google.com/maps/search/?api=1&query=%E6%9C%AD%E5%B9%8C%E5%B8%82%E4%B8%AD%E5%A4%AE%E5%8C%BA%E5%8D%977%E6%9D%A1%E8%A5%BF4%E4%B8%81%E7%9B%AE2-7%20%E3%83%A9%E3%82%A4%E3%83%88%E3%83%93%E3%83%AB%E2%85%A1" class="link-btn link-btn--light" target="_blank" rel="noopener">Googleマップで開く →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 転：MEMBERS ============ -->
+    <section class="sec members" id="members" aria-labelledby="members-title">
+      <div class="container">
+        <header class="sec-head reveal">
+          <p class="sec-head__en">Hosted by Insup</p>
+          <h2 class="sec-head__ja" id="members-title">Insupのメンバーが<br class="sp">お待ちしています</h2>
+        </header>
+        <ul class="members__list js-members"></ul>
+      </div>
+    </section>
+
+    <!-- ============ 結：INFO ============ -->
+    <section class="sec info" id="info" aria-labelledby="info-title">
+      <div class="container">
+        <header class="sec-head reveal">
+          <p class="sec-head__en">Event Info</p>
+          <h2 class="sec-head__ja" id="info-title">開催概要</h2>
+        </header>
+
+        <div class="info__grid reveal">
+          <div class="info-card info-card--date">
+            <p class="info-card__label">今月の開催日</p>
+            <ul class="date-list js-date-list"></ul>
+            <p class="info-card__sub js-regular"></p>
+          </div>
+          <div class="info-card info-card--price">
+            <p class="info-card__label">参加費</p>
+            <p class="info-card__value"><b>1,000</b>円</p>
+            <p class="info-card__sub">飲み放題＆ご飯付き</p>
+          </div>
+          <div class="info-card">
+            <p class="info-card__label">時間</p>
+            <p class="info-card__value"><b>22:00</b></p>
+            <p class="info-card__sub">〜24:00</p>
+          </div>
+          <div class="info-card">
+            <p class="info-card__label">定員</p>
+            <p class="info-card__value"><b>10</b>名</p>
+            <p class="info-card__sub">少人数制</p>
+          </div>
+          <div class="info-card">
+            <p class="info-card__label">年齢</p>
+            <p class="info-card__value info-card__value--s">18歳以上</p>
+            <p class="info-card__sub">※アルコールは20歳以上</p>
+          </div>
+          <div class="info-card info-card--half">
+            <p class="info-card__label">お支払い</p>
+            <p class="info-card__value info-card__value--s">カード・現金のみ</p>
+          </div>
+          <div class="info-card info-card--wide">
+            <p class="info-card__label">会場</p>
+            <p class="info-card__value info-card__value--s">Bar pochi</p>
+            <p class="info-card__sub">札幌市中央区南7条西4丁目2-7 ライトビルⅡ 地下1階</p>
+          </div>
+        </div>
+
+        <ul class="info__notes reveal">
+          <li>Insupが飲食代の一部を負担</li>
+          <li>Insupの仕事・採用紹介あり</li>
+          <li>応募は任意</li>
+        </ul>
+        <p class="info__cancel js-cancel" hidden></p>
+      </div>
+    </section>
+
+    <!-- ============ 結：STEPS ============ -->
+    <section class="sec steps" id="steps" aria-labelledby="steps-title">
+      <div class="container">
+        <header class="sec-head reveal">
+          <p class="sec-head__en">How to Join</p>
+          <h2 class="sec-head__ja" id="steps-title">参加条件</h2>
+          <p class="sec-head__lead">申込フォームからお申し込みのうえ、<br class="sp">以下の3つをお願いします。</p>
+        </header>
+
+        <ol class="steps__list">
+          <li class="step reveal">
+            <span class="step__no">1</span>
+            <div class="step__body">
+              <h3 class="step__title">本会のグループLINEに参加</h3>
+            </div>
+          </li>
+          <li class="step reveal" style="--d:.1s">
+            <span class="step__no">2</span>
+            <div class="step__body">
+              <h3 class="step__title">2つのアカウントをフォロー</h3>
+              <div class="ig-list">
+                <a href="https://www.instagram.com/__kiichanp__/" class="ig-btn" target="_blank" rel="noopener">
+                  <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" class="fill"/></svg>
+                  <span>@__kiichanp__</span>
+                </a>
+                <a href="https://www.instagram.com/kura_sota/" class="ig-btn" target="_blank" rel="noopener">
+                  <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" class="fill"/></svg>
+                  <span>@kura_sota</span>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="step reveal" style="--d:.2s">
+            <span class="step__no">3</span>
+            <div class="step__body">
+              <h3 class="step__title">指定画像をストーリーズに投稿し、<br class="pc">両名をメンション</h3>
+              <div class="story">
+                <img src="assets/img/insup-night-flyer-thumb.webp" alt="ストーリーズ投稿用の指定画像（Insup Nightの告知画像）" class="story__img js-story-thumb" loading="lazy" width="560" height="700">
+                <p class="story__note"><span>① 下のボタンで画像を保存</span><span>② ストーリーズに投稿</span><span>③ 2つのアカウントをメンション</span></p>
+                <button type="button" class="btn btn--primary btn--md story__btn js-save-image">
+                  <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+                  <span>画像を保存する</span>
+                </button>
+              </div>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="sec faq" id="faq" aria-labelledby="faq-title">
+      <div class="container container--narrow">
+        <header class="sec-head reveal">
+          <p class="sec-head__en">Q&amp;A</p>
+          <h2 class="sec-head__ja" id="faq-title">よくある質問</h2>
+        </header>
+        <div class="faq__list reveal">
+          <details class="faq-item">
+            <summary>一人で参加しても大丈夫ですか？</summary>
+            <p>はい、大丈夫です。一人参加・初参加の方も大歓迎です。</p>
+          </details>
+          <details class="faq-item">
+            <summary>Insupの仕事に応募しないといけませんか？</summary>
+            <p>いいえ。Insupの仕事・採用紹介はありますが、応募は任意です。話を聞くだけでも大歓迎です。</p>
+          </details>
+          <details class="faq-item">
+            <summary>年齢制限はありますか？</summary>
+            <p>18歳以上の方が対象です。アルコールの提供は20歳以上の方に限ります。</p>
+          </details>
+          <details class="faq-item">
+            <summary>支払い方法は？</summary>
+            <p>カード・現金のみとなります。</p>
+          </details>
+          <details class="faq-item">
+            <summary>開催日はいつですか？</summary>
+            <p>月2回、木曜日の22:00〜24:00に開催しています。今月の開催日は「今月の開催日」ボタンからご確認ください。</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 結：FINAL CTA ============ -->
+    <section class="final" id="apply" aria-labelledby="final-title">
+      <div class="final__bg" aria-hidden="true">
+        <span class="streak streak--1"></span>
+        <span class="streak streak--2"></span>
+        <span class="streak streak--3"></span>
+      </div>
+      <div class="container final__inner">
+        <p class="final__en reveal">See you on Thursday night.</p>
+        <h2 class="final__title reveal" id="final-title">人生が動き出す夜に、<br class="sp">あなたも。</h2>
+        <div class="final__meta reveal">
+          <span>次回 <b class="js-next-date">—</b></span>
+          <span>22:00〜24:00</span>
+          <span>定員<b>10</b>名</span>
+          <span><b>1,000</b>円</span>
+        </div>
+        <div class="final__btns reveal">
+          <a href="#apply" class="btn btn--white btn--xl js-apply" id="final-cta">
+            <span>申込フォームへ進む</span>
+            <svg class="ico ico--arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <button type="button" class="btn btn--line-white btn--lg js-open-dates">
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+            <span>今月の開催日</span>
+          </button>
+        </div>
+        <p class="final__note reveal">一人参加・初参加も歓迎！</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="https://insup.co.jp/" class="footer__logo" target="_blank" rel="noopener">
+        <img src="assets/img/insup-logo-mark.webp" alt="" width="40" height="40">
+        <img src="assets/img/insup-logo-type.webp" alt="Insup" width="90" height="34">
+      </a>
+      <p class="footer__desc">Insup Night は、株式会社Insupが主催する食事交流会です。</p>
+      <ul class="footer__links">
+        <li><a href="https://insup.co.jp/" target="_blank" rel="noopener">株式会社Insup 公式サイト</a></li>
+        <li><a href="https://insup.co.jp/careers.html" target="_blank" rel="noopener">Insupの仕事を見る</a></li>
+        <li><a href="https://www.pochi-susukino.com/" target="_blank" rel="noopener">Bar pochi</a></li>
+      </ul>
+      <small class="footer__copy">© Insup All Rights Reserved.</small>
+    </div>
+  </footer>
+
+  <!-- ============ STICKY CTA ============ -->
+  <div class="sticky-cta" id="sticky-cta" aria-hidden="true">
+    <button type="button" class="sticky-cta__dates js-open-dates" tabindex="-1">
+      <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+      <span>開催日</span>
+    </button>
+    <a href="#apply" class="sticky-cta__apply js-apply" tabindex="-1">
+      <span class="sticky-cta__small">定員10名・1,000円</span>
+      <span class="sticky-cta__main">参加を申し込む</span>
+      <svg class="ico ico--arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+
+  <!-- ============ MODAL：今月の開催日 ============ -->
+  <div class="modal" id="dates-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="modal__overlay js-close-modal"></div>
+    <div class="modal__panel">
+      <button type="button" class="modal__close js-close-modal" aria-label="閉じる">×</button>
+      <p class="modal__en">SCHEDULE</p>
+      <h2 class="modal__title" id="modal-title"><span class="js-month-label"></span>の開催日</h2>
+      <ul class="date-list date-list--modal js-date-list"></ul>
+      <p class="modal__regular js-regular"></p>
+      <dl class="modal__meta">
+        <div><dt>時間</dt><dd>22:00〜24:00</dd></div>
+        <div><dt>会場</dt><dd>Bar pochi（すすきの）</dd></div>
+        <div><dt>参加費</dt><dd>1,000円（飲み放題＆ご飯付き）</dd></div>
+      </dl>
+      <a href="#apply" class="btn btn--primary btn--lg btn--block js-apply"><span>この日に申し込む</span><svg class="ico ico--arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+
+  <!-- toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
