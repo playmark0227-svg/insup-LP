@@ -130,12 +130,9 @@ mark { background: none; color: inherit; }
   backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 6px 20px -14px rgba(10, 31, 82, .5);
 }
-.header__logo { display: flex; align-items: baseline; gap: 4px; text-decoration: none; }
-.header__logo img { width: 74px; height: auto; transform: translateY(3px); }
-.header__night {
-  font-family: var(--ff-en); font-style: italic; font-weight: 900; font-size: 1.3rem;
-  background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent;
-}
+.header__logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+.header__mark { width: 32px; height: auto; }
+.header__type { width: 76px; height: auto; transform: translateY(2px); }
 .header__actions { display: flex; gap: 8px; }
 @media (max-width: 420px) {
   .header .btn--ghost span { display: none; }
