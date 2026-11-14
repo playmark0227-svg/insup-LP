@@ -164,6 +164,22 @@
 
   /* ---------- スクロール演出 ---------- */
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- 1000円 カウントアップ ---------- */
+  $$('.js-count').forEach(function (el) {
+    var to = +el.getAttribute('data-to') || 0;
+    if (reduce || !window.requestAnimationFrame) { el.textContent = to; return; }
+    var dur = 1100, delay = 150, t0 = null;
+    el.textContent = '0';
+    function step(t) {
+      if (t0 === null) t0 = t;
+      var p = Math.min(1, Math.max(0, (t - t0 - delay) / dur));
+      var e = 1 - Math.pow(1 - p, 4);
+      el.textContent = Math.round(to * e);
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  });
   var reveals = $$('.reveal');
   if ('IntersectionObserver' in window && !reduce) {
     var io = new IntersectionObserver(function (entries) {
