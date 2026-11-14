@@ -192,6 +192,44 @@
     reveals.forEach(function (el) { el.classList.add('is-in'); });
   }
 
+  /* ---------- 「こんな気持ち」背景の Q/A マーク：スクロール連動 ---------- */
+  var qaBg = $('.js-qa-bg');
+  if (qaBg) {
+    var qaSec = qaBg.parentNode;
+    var qaMarks = $$('.qa', qaBg);
+    if ('IntersectionObserver' in window && !reduce) {
+      var qaIo = new IntersectionObserver(function (en) {
+        if (en[0].isIntersecting) { qaBg.classList.add('is-in'); qaIo.disconnect(); }
+      }, { threshold: 0.1 });
+      qaIo.observe(qaSec);
+    } else {
+      qaBg.classList.add('is-in');
+    }
+    if (!reduce) {
+      var qaTicking = false;
+      var moveQa = function () {
+        qaTicking = false;
+        var r = qaSec.getBoundingClientRect();
+        var vh = window.innerHeight;
+        if (r.bottom < -200 || r.top > vh + 200) return;
+        // セクションが画面を通過する進み具合（-0.5 〜 0.5）
+        var p = (vh - r.top) / (vh + r.height) - 0.5;
+        var dist = Math.min(520, vh * 0.7);
+        qaMarks.forEach(function (m) {
+          var sp = +m.getAttribute('data-speed') || 0;
+          var rot = +m.getAttribute('data-rot') || 0;
+          m.style.transform = 'translate3d(0,' + (p * sp * dist).toFixed(1) + 'px,0) rotate(' + (p * rot * 2).toFixed(1) + 'deg)';
+        });
+      };
+      var onQaScroll = function () {
+        if (!qaTicking) { qaTicking = true; requestAnimationFrame(moveQa); }
+      };
+      window.addEventListener('scroll', onQaScroll, { passive: true });
+      window.addEventListener('resize', onQaScroll);
+      moveQa();
+    }
+  }
+
   /* ---------- ヘッダー & 追従CTA ---------- */
   var header = $('#header');
   var sticky = $('#sticky-cta');
