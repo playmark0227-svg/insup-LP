@@ -366,21 +366,33 @@
     <!-- ============ 結：STEPS ============ -->
     <section class="sec steps" id="steps" aria-labelledby="steps-title">
       <div class="container">
-        <header class="sec-head reveal">
-          <p class="sec-head__en">How to Join</p>
-          <h2 class="sec-head__ja" id="steps-title">参加条件</h2>
-          <p class="sec-head__lead">申込フォームからお申し込みのうえ、<br class="sp">以下の3つをお願いします。</p>
+        <header class="easy reveal">
+          <p class="easy__label">参加条件</p>
+          <h2 class="easy__title" id="steps-title" aria-label="参加は簡単3ステップ">
+            <span class="easy__pre" aria-hidden="true">参加は</span>
+            <span class="easy__main" aria-hidden="true">
+              <span class="easy__kantan">簡単</span>
+              <span class="easy__three"><span class="easy__burst"></span><b>3</b></span>
+              <span class="easy__step">ステップ</span>
+            </span>
+          </h2>
+          <ol class="easy__flow" aria-hidden="true">
+            <li style="--n:0"><span>1</span>LINE参加</li>
+            <li style="--n:1"><span>2</span>フォロー</li>
+            <li style="--n:2"><span>3</span>ストーリー投稿</li>
+          </ol>
+          <p class="easy__lead">申込フォームからお申し込みのうえ、<br class="sp">たったこれだけでOK！</p>
         </header>
 
         <ol class="steps__list">
           <li class="step reveal">
-            <span class="step__no">1</span>
+            <span class="step__no"><small>STEP</small>1</span>
             <div class="step__body">
               <h3 class="step__title">本会のグループLINEに参加</h3>
             </div>
           </li>
           <li class="step reveal" style="--d:.1s">
-            <span class="step__no">2</span>
+            <span class="step__no"><small>STEP</small>2</span>
             <div class="step__body">
               <h3 class="step__title">2つのアカウントをフォロー</h3>
               <div class="ig-list">
@@ -396,7 +408,7 @@
             </div>
           </li>
           <li class="step reveal" style="--d:.2s">
-            <span class="step__no">3</span>
+            <span class="step__no"><small>STEP</small>3</span>
             <div class="step__body">
               <h3 class="step__title">指定画像をストーリーズに投稿し、<br class="pc">両名をメンション</h3>
               <div class="story">
@@ -410,6 +422,11 @@
             </div>
           </li>
         </ol>
+
+        <div class="steps__done reveal">
+          <p class="steps__done-text"><span>これで参加準備OK！</span></p>
+          <a href="#apply" class="btn btn--primary btn--lg js-apply"><span>申込フォームへ進む</span><svg class="ico ico--arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
       </div>
     </section>
 

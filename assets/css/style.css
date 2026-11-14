@@ -804,6 +804,94 @@ mark { background: none; color: inherit; }
     linear-gradient(115deg, transparent 0 55%, rgba(58, 157, 255, .12) 55% 70%, transparent 70%),
     linear-gradient(180deg, #eef4ff 0%, #e2ecff 100%);
 }
+/* 簡単3ステップ 見出し */
+.easy { position: relative; text-align: center; margin-bottom: clamp(40px, 7vw, 64px); }
+.easy__label {
+  display: inline-block; padding: .35em 1.2em; border-radius: 999px;
+  background: var(--navy); color: #fff; font-weight: 900; font-size: .85rem; letter-spacing: .14em;
+}
+.easy__title { display: flex; flex-direction: column; align-items: center; margin-top: 14px; line-height: 1; color: var(--navy); }
+.easy__pre { font-size: clamp(1.2rem, 4.6vw, 1.7rem); font-weight: 900; letter-spacing: .1em; }
+.easy__main { display: flex; align-items: center; justify-content: center; gap: .06em; margin-top: .1em; font-size: clamp(1.9rem, 8.8vw, 4.6rem); font-weight: 900; white-space: nowrap; }
+.easy__kantan {
+  position: relative;
+  padding: .12em .32em .16em; margin-right: .06em;
+  background: var(--navy); color: #fff; border-radius: .18em;
+  transform: rotate(-4deg);
+  box-shadow: 0 .14em .3em -.12em rgba(10, 31, 82, .5);
+}
+.easy__three {
+  position: relative; display: inline-grid; place-items: center;
+  width: 1.9em; height: 1.9em;
+}
+.easy__three b {
+  position: relative; z-index: 1;
+  font-family: var(--ff-en); font-style: italic; font-weight: 900; font-size: 1.85em; line-height: 1;
+  background: linear-gradient(160deg, #0b3fc4 10%, #1d63f0 50%, #3a9dff 90%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 .06em .08em rgba(20, 83, 230, .35));
+  padding-right: .06em;
+}
+.easy__burst {
+  position: absolute; inset: 0; border-radius: 50%;
+  background:
+    radial-gradient(circle, #fff 0 46%, transparent 47%),
+    repeating-conic-gradient(from 0deg, rgba(103, 212, 255, .75) 0deg 10deg, transparent 10deg 20deg);
+  -webkit-mask: radial-gradient(circle, #000 0 64%, transparent 66%);
+          mask: radial-gradient(circle, #000 0 64%, transparent 66%);
+  animation: spin 18s linear infinite;
+}
+.easy__step { letter-spacing: .02em; }
+.easy__lead { margin-top: 18px; font-weight: 700; color: var(--muted); font-size: clamp(.92rem, 3.2vw, 1.05rem); }
+
+.easy__flow {
+  display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px 4px;
+  margin: 22px auto 0; max-width: 640px;
+}
+.easy__flow li {
+  display: inline-flex; align-items: center; gap: .45em;
+  padding: .5em .95em .5em .5em; border-radius: 999px;
+  background: #fff; color: var(--navy); font-weight: 900; font-size: clamp(.78rem, 3vw, .95rem);
+  box-shadow: inset 0 0 0 2px var(--ice-2), var(--shadow-s);
+}
+.easy__flow li span {
+  display: grid; place-items: center; width: 1.7em; height: 1.7em; border-radius: 50%;
+  background: var(--ice); color: var(--blue); font-family: var(--ff-en); font-size: .9em;
+}
+.easy__flow li { position: relative; }
+.easy__flow li + li { margin-left: 20px; }
+@media (max-width: 479px) {
+  .easy__flow { flex-wrap: nowrap; gap: 0; }
+  .easy__flow li { padding: .45em .7em .45em .4em; font-size: .72rem; gap: .35em; white-space: nowrap; }
+  .easy__flow li + li { margin-left: 16px; }
+  .easy__flow li + li::before { left: -13px; width: 6px; height: 6px; margin-top: -4px; border-width: 2.5px; }
+}
+.easy__flow li + li::before {
+  content: ""; position: absolute; left: -17px; top: 50%;
+  width: 8px; height: 8px; margin-top: -5px;
+  border-top: 3px solid var(--blue); border-right: 3px solid var(--blue);
+  transform: rotate(45deg);
+}
+
+/* 見出しのアクション（画面に入ったら） */
+.easy .easy__kantan, .easy .easy__three, .easy .easy__step, .easy .easy__pre { opacity: 0; }
+.easy.is-in .easy__pre { animation: kvFade .5s ease .05s both; }
+.easy.is-in .easy__kantan { animation: easyStamp .55s cubic-bezier(.2, 1.6, .4, 1) .2s both; }
+.easy.is-in .easy__three { animation: easyThree .9s cubic-bezier(.2, 1.6, .4, 1) .45s both; }
+.easy.is-in .easy__three b { animation: easyBeat 2.4s ease-in-out 1.6s infinite; }
+.easy.is-in .easy__step { animation: kvFade .5s ease .75s both; }
+.easy.is-in .easy__flow li { animation: easyLight 3.6s ease-in-out infinite; animation-delay: calc(1.2s + var(--n) * .6s); }
+@keyframes easyStamp { 0% { opacity: 0; transform: rotate(-4deg) scale(2.2); } 100% { opacity: 1; transform: rotate(-4deg) scale(1); } }
+@keyframes easyThree { 0% { opacity: 0; transform: scale(0) rotate(-180deg); } 100% { opacity: 1; transform: none; } }
+@keyframes easyBeat { 0%, 70%, 100% { transform: scale(1); } 80% { transform: scale(1.14) rotate(-4deg); } 90% { transform: scale(.96); } }
+@keyframes easyLight {
+  0%, 30%, 100% { background: #fff; color: var(--navy); }
+  8%, 22% { background: var(--blue); color: #fff; box-shadow: 0 10px 20px -8px rgba(20, 83, 230, .7); transform: translateY(-3px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .easy .easy__kantan, .easy .easy__three, .easy .easy__step, .easy .easy__pre { opacity: 1; }
+}
+
 .steps__list { position: relative; display: grid; gap: 18px; max-width: 860px; margin: 0 auto; }
 .steps__list::before {
   content: ""; position: absolute; left: 31px; top: 30px; bottom: 30px; width: 3px;
@@ -817,10 +905,22 @@ mark { background: none; color: inherit; }
   position: relative; z-index: 1;
   width: 64px; height: 64px; border-radius: 50%;
   display: grid; place-items: center;
-  font-family: var(--ff-en); font-weight: 900; font-size: 1.8rem; color: #fff;
+  font-family: var(--ff-en); font-weight: 900; font-size: 1.8rem; color: #fff; line-height: 1;
   background: var(--grad-btn);
   box-shadow: 0 10px 20px -8px rgba(20, 83, 230, .7), 0 0 0 6px #fff;
+  align-content: center; gap: 2px;
 }
+.step__no small { font-size: .32em; letter-spacing: .12em; font-weight: 800; opacity: .9; }
+.step.is-in .step__no { animation: easyThree .7s cubic-bezier(.2, 1.6, .4, 1) calc(var(--d, 0s) + .15s) both; }
+
+.steps__done { display: flex; flex-direction: column; align-items: center; gap: 16px; margin-top: 34px; text-align: center; }
+.steps__done-text span {
+  display: inline-block; padding: .5em 1.4em; border-radius: 999px;
+  background: #fff; color: var(--blue); font-weight: 900; font-size: clamp(1.05rem, 4vw, 1.3rem);
+  box-shadow: inset 0 0 0 2.5px var(--blue), var(--shadow-s);
+}
+.steps__done-text span::before { content: "✓ "; }
+.steps__done .btn { width: min(420px, 100%); }
 .step__body {
   padding: 18px 22px;
   background: #fff; border-radius: var(--radius);
