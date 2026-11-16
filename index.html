@@ -26,13 +26,40 @@
       <img src="assets/img/insup-logo-type.webp" alt="Insup" class="header__type" width="96" height="36">
     </a>
     <div class="header__actions">
-      <button type="button" class="btn btn--ghost btn--sm js-open-dates">
-        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
-        <span>今月の開催日</span>
+      <button type="button" class="menu-btn js-menu-open" aria-expanded="false" aria-controls="site-menu">
+        <span class="menu-btn__bars" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="menu-btn__label">MENU</span>
       </button>
-      <a href="#apply" class="btn btn--cta btn--sm js-apply">申し込む</a>
     </div>
   </header>
+
+  <!-- ============ MENU（目次） ============ -->
+  <nav class="menu" id="site-menu" aria-label="ページ内メニュー" hidden>
+    <div class="menu__overlay js-menu-close"></div>
+    <div class="menu__panel">
+      <div class="menu__head">
+        <p class="menu__title">MENU</p>
+        <button type="button" class="menu__close js-menu-close" aria-label="メニューを閉じる"><span></span><span></span></button>
+      </div>
+      <ul class="menu__list">
+        <li style="--i:0"><a href="#worry" class="js-menu-link"><small>Do you feel like this?</small><span>こんな気持ち、ありませんか？</span></a></li>
+        <li style="--i:1"><a href="#point" class="js-menu-link"><small>What is Insup Night?</small><span>Insup Nightでできること</span></a></li>
+        <li style="--i:2"><a href="#voice" class="js-menu-link"><small>Voice</small><span>参加者の声</span></a></li>
+        <li style="--i:3"><a href="#place" class="js-menu-link"><small>Place</small><span>会場（Bar pochi）</span></a></li>
+        <li style="--i:4"><a href="#members" class="js-menu-link"><small>Members</small><span>Insupメンバー紹介</span></a></li>
+        <li style="--i:5"><a href="#info" class="js-menu-link"><small>Event Info</small><span>開催概要</span></a></li>
+        <li style="--i:6"><a href="#steps" class="js-menu-link"><small>How to Join</small><span>参加は簡単3ステップ</span></a></li>
+        <li style="--i:7"><a href="#faq" class="js-menu-link"><small>Q&amp;A</small><span>よくある質問</span></a></li>
+      </ul>
+      <div class="menu__actions">
+        <button type="button" class="btn btn--line-white btn--md btn--block js-open-dates js-menu-link">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+          <span>今月の開催日</span>
+        </button>
+        <a href="#apply" class="btn btn--cta btn--lg btn--block js-apply js-menu-link"><span>参加を申し込む</span><svg class="ico ico--arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </nav>
 
   <main id="top">
 

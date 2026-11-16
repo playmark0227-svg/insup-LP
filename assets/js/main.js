@@ -126,6 +126,37 @@
     }
   });
 
+  /* ---------- MENU（目次） ---------- */
+  var menu = $('#site-menu');
+  var menuBtn = $('.js-menu-open');
+  var menuTimer;
+  function openMenu() {
+    clearTimeout(menuTimer);
+    menu.hidden = false;
+    requestAnimationFrame(function () { requestAnimationFrame(function () { menu.classList.add('is-open'); }); });
+    menuBtn.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('is-locked');
+    var c = $('.menu__close', menu); if (c) c.focus();
+  }
+  function closeMenu(keepLock) {
+    if (menu.hidden) return;
+    menu.classList.remove('is-open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    if (!keepLock) document.body.classList.remove('is-locked');
+    menuTimer = setTimeout(function () { menu.hidden = true; }, 450);
+  }
+  if (menu && menuBtn) {
+    menuBtn.addEventListener('click', openMenu);
+    $$('.js-menu-close', menu).forEach(function (b) { b.addEventListener('click', function () { closeMenu(); menuBtn.focus(); }); });
+    $$('.js-menu-link', menu).forEach(function (a) {
+      // 開催日ボタンはモーダルが開くので、スクロールロックを残す
+      a.addEventListener('click', function () { closeMenu(a.classList.contains('js-open-dates')); }, true);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !menu.hidden) { closeMenu(); menuBtn.focus(); }
+    });
+  }
+
   /* ---------- モーダル ---------- */
   var modal = $('#dates-modal');
   var lastFocus = null;

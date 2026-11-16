@@ -158,6 +158,71 @@ mark { background: none; color: inherit; }
 .header__mark { width: 32px; height: auto; }
 .header__type { width: 76px; height: auto; transform: translateY(2px); }
 .header__actions { display: flex; gap: 8px; }
+
+/* MENU ボタン */
+.menu-btn {
+  display: inline-flex; align-items: center; gap: .6em;
+  padding: .62em 1.05em .62em .95em; border: 0; border-radius: 999px;
+  background: var(--navy); color: #fff;
+  font-family: var(--ff-en); font-weight: 800; font-size: .8rem; letter-spacing: .12em;
+  box-shadow: 0 8px 18px -8px rgba(10, 31, 82, .6);
+  transition: transform .25s, background .25s;
+}
+.menu-btn:hover { background: var(--blue); transform: translateY(-2px); }
+.menu-btn:focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; }
+.menu-btn__bars { display: grid; gap: 3px; }
+.menu-btn__bars i { display: block; width: 16px; height: 2px; border-radius: 2px; background: currentColor; transition: transform .3s; }
+.menu-btn__bars i:nth-child(2) { width: 11px; justify-self: end; }
+.menu-btn:hover .menu-btn__bars i:nth-child(2) { transform: scaleX(1.45); transform-origin: right; }
+
+/* MENU パネル */
+.menu { position: fixed; inset: 0; z-index: 90; }
+.menu__overlay { position: absolute; inset: 0; background: rgba(6, 21, 54, .55); backdrop-filter: blur(3px); opacity: 0; transition: opacity .3s; }
+.menu__panel {
+  position: absolute; top: 0; right: 0; bottom: 0;
+  width: min(380px, 88vw); overflow-y: auto;
+  display: flex; flex-direction: column;
+  padding: 16px 22px calc(24px + env(safe-area-inset-bottom));
+  background:
+    radial-gradient(70% 40% at 100% 0%, rgba(58, 157, 255, .4), transparent 70%),
+    linear-gradient(170deg, #0a1f52 0%, #061536 100%);
+  color: #fff;
+  box-shadow: -20px 0 50px -20px rgba(0, 0, 0, .5);
+  transform: translateX(100%);
+  transition: transform .45s cubic-bezier(.2, .8, .2, 1);
+}
+.menu.is-open .menu__overlay { opacity: 1; }
+.menu.is-open .menu__panel { transform: none; }
+.menu__head { display: flex; align-items: center; justify-content: space-between; min-height: 40px; }
+.menu__title { font-family: var(--ff-en); font-style: italic; font-weight: 900; letter-spacing: .14em; color: var(--cyan); }
+.menu__close { position: relative; width: 44px; height: 44px; border: 0; border-radius: 50%; background: rgba(255, 255, 255, .1); }
+.menu__close span { position: absolute; left: 50%; top: 50%; width: 18px; height: 2px; margin: -1px 0 0 -9px; background: #fff; border-radius: 2px; transform: rotate(45deg); }
+.menu__close span + span { transform: rotate(-45deg); }
+.menu__close:hover { background: rgba(255, 255, 255, .2); }
+.menu__list { margin-top: 14px; }
+.menu__list li { border-bottom: 1px solid rgba(255, 255, 255, .12); opacity: 0; transform: translateX(24px); }
+.menu.is-open .menu__list li { animation: menuIn .5s cubic-bezier(.2, .8, .2, 1) both; animation-delay: calc(.12s + var(--i) * .05s); }
+@keyframes menuIn { to { opacity: 1; transform: none; } }
+.menu__list a {
+  position: relative; display: flex; flex-direction: column; gap: 2px;
+  padding: 14px 34px 14px 4px; text-decoration: none;
+  transition: padding .25s, color .25s;
+}
+.menu__list a::after {
+  content: ""; position: absolute; right: 8px; top: 50%; width: 9px; height: 9px; margin-top: -5px;
+  border-top: 2px solid var(--cyan); border-right: 2px solid var(--cyan); transform: rotate(45deg);
+  transition: right .25s;
+}
+.menu__list a:hover, .menu__list a:focus-visible { padding-left: 10px; color: var(--cyan); }
+.menu__list a:hover::after { right: 2px; }
+.menu__list small { font-family: var(--ff-en); font-style: italic; font-weight: 800; font-size: .68rem; letter-spacing: .08em; color: #8fb6ff; }
+.menu__list span { font-weight: 900; font-size: 1rem; line-height: 1.4; }
+.menu__actions { display: grid; gap: 12px; margin-top: auto; padding-top: 24px; }
+@media (prefers-reduced-motion: reduce) { .menu__list li { opacity: 1; transform: none; } }
+
+/* 固定ヘッダーぶん、ジャンプ先をずらす */
+main section[id] { scroll-margin-top: calc(var(--header-h) - 1px); }
+
 @media (max-width: 420px) {
   .header .btn--ghost span { display: none; }
   .header .btn--ghost { padding: .62em .75em; }
