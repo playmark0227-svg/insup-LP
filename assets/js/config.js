@@ -59,14 +59,14 @@ window.INSUP_NIGHT = {
       photo: "assets/img/member-1.webp"
     },
     {
-      name: "倉島 颯汰",
-      role: "COO（最高執行責任者）",
+      name: "佐々木 駿",
+      role: "CHRO（最高人事責任者）",
       comment: "職種も年齢もバラバラな人と話すと、世界が一気に広がります。",
       photo: "assets/img/member-2.webp"
     },
     {
-      name: "佐々木 駿",
-      role: "CHRO（最高人事責任者）",
+      name: "倉島 颯汰",
+      role: "COO（最高執行責任者）",
       comment: "一人参加でも大丈夫。僕たちが最初に声をかけます！",
       photo: "assets/img/member-3.webp"
     }
