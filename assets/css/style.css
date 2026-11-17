@@ -772,6 +772,9 @@ main section[id] { scroll-margin-top: calc(var(--header-h) - 1px); }
 .voice-card__photo svg { width: 70%; height: 70%; fill: #b9cdf3; margin-top: 18%; }
 .voice-card__name { font-weight: 900; color: var(--navy); line-height: 1.4; }
 .voice-card__profile { font-size: .8rem; color: var(--muted); line-height: 1.4; }
+/* 見出しなし・名前なしの声：本文と年代・職種を主役に */
+.voice-card__head + .voice-card__text { margin-top: 18px; font-size: 1rem; font-weight: 700; color: var(--ink); line-height: 1.9; }
+.voice-card__person div > .voice-card__profile:first-child { font-size: .95rem; font-weight: 900; color: var(--navy); }
 
 /* 準備中の見た目 */
 .voice-card.is-soon { background: rgba(255, 255, 255, .7); box-shadow: inset 0 0 0 2px var(--ice-2), var(--shadow-s); }

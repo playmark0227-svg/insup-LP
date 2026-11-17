@@ -92,12 +92,15 @@
           '<span class="voice-card__no">VOICE ' + no + '</span>' +
           (ready ? '' : '<span class="voice-card__soon">Coming soon</span>') +
         '</div>' +
-        '<p class="voice-card__title">' + (v.title ? esc(v.title) : 'インタビュー準備中') + '</p>' +
-        '<p class="voice-card__text">' + (v.text ? esc(v.text) : '参加者の方へのインタビューを、近日公開予定です。<br>お楽しみに！') + '</p>' +
+        (v.title ? '<p class="voice-card__title">' + esc(v.title) + '</p>'
+                 : (ready ? '' : '<p class="voice-card__title">インタビュー準備中</p>')) +
+        '<p class="voice-card__text">' + (v.text ? esc(v.text).replace(/\n/g, '<br>') : '参加者の方へのインタビューを、近日公開予定です。<br>お楽しみに！') + '</p>' +
         '<div class="voice-card__person">' +
           '<div class="voice-card__photo">' + (v.photo ? '<img src="' + esc(v.photo) + '" alt="" loading="lazy" width="120" height="120">' : silhouette) + '</div>' +
-          '<div><p class="voice-card__name">' + (v.name ? esc(v.name) : 'お名前') + '</p>' +
-          '<p class="voice-card__profile">' + (v.profile ? esc(v.profile) : '年代・職種') + '</p></div>' +
+          '<div>' +
+            (v.name ? '<p class="voice-card__name">' + esc(v.name) + '</p>' : (ready ? '' : '<p class="voice-card__name">お名前</p>')) +
+            (v.profile ? '<p class="voice-card__profile">' + esc(v.profile) + '</p>' : (ready ? '' : '<p class="voice-card__profile">年代・職種</p>')) +
+          '</div>' +
         '</div>' +
       '</li>';
     }).join('');
