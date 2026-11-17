@@ -246,6 +246,22 @@
     reveals.forEach(function (el) { el.classList.add('is-in'); });
   }
 
+  /* ---------- 10名限定：1→10 カウントアップ ---------- */
+  $$('.js-ppl-count').forEach(function (el) {
+    var to = +el.getAttribute('data-to') || 10;
+    if (reduce || !('IntersectionObserver' in window)) return;
+    el.textContent = '0';
+    var cio = new IntersectionObserver(function (en) {
+      if (!en[0].isIntersecting) return;
+      cio.disconnect();
+      var v = 0;
+      setTimeout(function () {
+        var t = setInterval(function () { v++; el.textContent = v; if (v >= to) clearInterval(t); }, 130);
+      }, 350);
+    }, { threshold: 0.3 });
+    cio.observe(el);
+  });
+
   /* ---------- 「こんな気持ち」背景の Q/A マーク：スクロール連動 ---------- */
   var qaBg = $('.js-qa-bg');
   if (qaBg) {
