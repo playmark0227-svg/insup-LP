@@ -1132,7 +1132,8 @@ main section[id] { scroll-margin-top: calc(var(--header-h) - 1px); }
   -webkit-background-clip: text; background-clip: text; color: transparent;
   animation: finalShine 4.5s ease-in-out infinite;
 }
-.final__title span + br + span, .final__title span + span { animation-delay: .25s; }
+.final__title .final__gap { display: inline-block; width: .6em; background: none; animation: none; }
+@media (max-width: 767px) { .final__title .final__gap { display: none; } }
 @keyframes finalShine { 0%, 35% { background-position: 100% 0; } 75%, 100% { background-position: 0 0; } }
 .final__meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 24px; }
 .final__meta span { padding: .45em 1em; border-radius: 999px; background: rgba(255, 255, 255, .14); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .35); font-weight: 900; font-size: .92rem; }
