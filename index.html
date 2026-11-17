@@ -50,13 +50,14 @@
         <li style="--i:5"><a href="#members" class="js-menu-link"><small>Members</small><span>Insupメンバー紹介</span></a></li>
         <li style="--i:6"><a href="#info" class="js-menu-link"><small>Event Info</small><span>開催概要</span></a></li>
         <li style="--i:7"><a href="#faq" class="js-menu-link"><small>Q&amp;A</small><span>よくある質問</span></a></li>
+        <li style="--i:8"><a href="#entry" class="js-menu-link"><small>Entry Form</small><span>参加申込フォーム</span></a></li>
       </ul>
       <div class="menu__actions">
         <button type="button" class="btn btn--line-white btn--md btn--block js-open-dates js-menu-link">
           <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
           <span>今月の開催日</span>
         </button>
-        <a href="#apply" class="btn btn--cta btn--lg btn--block js-apply js-menu-link"><span>参加を申し込む</span><svg class="ico ico--arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="#entry" class="btn btn--cta btn--lg btn--block js-apply js-menu-link"><span>参加を申し込む</span><svg class="ico ico--arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
   </nav>
@@ -121,7 +122,7 @@
         </ul>
 
         <div class="hero__cta anim-up" style="--d:1.1s" id="hero-cta">
-          <a href="#apply" class="btn btn--cta btn--xl js-apply">
+          <a href="#entry" class="btn btn--cta btn--xl js-apply">
             <span>参加を申し込む</span>
             <svg class="ico ico--arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
@@ -257,7 +258,7 @@
 
         <div class="steps__done reveal">
           <p class="steps__done-text"><span>これで参加準備OK！</span></p>
-          <a href="#apply" class="btn btn--cta btn--lg js-apply"><span>申込フォームへ進む</span><svg class="ico ico--arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="#entry" class="btn btn--cta btn--lg js-apply"><span>申込フォームへ進む</span><svg class="ico ico--arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </div>
     </section>
@@ -347,7 +348,7 @@
         </article>
 
         <div class="inline-cta reveal">
-          <a href="#apply" class="btn btn--cta btn--lg js-apply"><span>このテーブルに参加する</span><svg class="ico ico--arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="#entry" class="btn btn--cta btn--lg js-apply"><span>このテーブルに参加する</span><svg class="ico ico--arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <button type="button" class="link-btn js-open-dates">今月の開催日をチェック →</button>
         </div>
       </div>
@@ -515,7 +516,7 @@
           <span><b>1,000</b>円</span>
         </div>
         <div class="final__btns reveal">
-          <a href="#apply" class="btn btn--cta btn--xl js-apply" id="final-cta">
+          <a href="#entry" class="btn btn--cta btn--xl js-apply" id="final-cta">
             <span>申込フォームへ進む</span>
             <svg class="ico ico--arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
@@ -525,6 +526,95 @@
           </button>
         </div>
         <p class="final__note reveal">一人参加・初参加も歓迎！</p>
+      </div>
+    </section>
+
+    <!-- ============ 申込フォーム ============ -->
+    <section class="entry" id="entry" aria-labelledby="entry-title">
+      <div class="container container--narrow">
+        <header class="sec-head">
+          <p class="sec-head__en">Entry Form</p>
+          <h2 class="sec-head__ja" id="entry-title">参加申込フォーム</h2>
+          <p class="sec-head__lead"><span class="req-mark">必須</span>の項目だけでもお申し込みいただけます。</p>
+        </header>
+
+        <form class="entry-form js-entry-form" id="entry-form" novalidate>
+          <div class="field">
+            <label for="f-name">お名前<span class="req-mark">必須</span></label>
+            <input type="text" id="f-name" name="お名前" autocomplete="name" placeholder="例）山田 花子" required>
+            <p class="field__err" id="f-name-err"></p>
+          </div>
+          <div class="field">
+            <label for="f-tel">電話番号<span class="req-mark">必須</span></label>
+            <input type="tel" id="f-tel" name="電話番号" autocomplete="tel" inputmode="tel" placeholder="例）090-1234-5678" required>
+            <p class="field__err" id="f-tel-err"></p>
+          </div>
+          <div class="field">
+            <label for="f-email">メールアドレス<span class="req-mark">必須</span></label>
+            <input type="email" id="f-email" name="メールアドレス" autocomplete="email" inputmode="email" placeholder="例）hanako@example.com" required>
+            <p class="field__err" id="f-email-err"></p>
+          </div>
+          <div class="field">
+            <label for="f-date">参加希望日<span class="req-mark">必須</span></label>
+            <div class="select"><select id="f-date" name="参加希望日" required class="js-date-select"><option value="">選択してください</option></select></div>
+            <p class="field__err" id="f-date-err"></p>
+          </div>
+
+          <p class="entry-form__divider"><span>ここから下は任意です</span></p>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="f-age">年代<span class="opt-mark">任意</span></label>
+              <div class="select"><select id="f-age" name="年代">
+                <option value="">選択してください</option>
+                <option>10代（18・19歳）</option>
+                <option>20代</option>
+                <option>30代</option>
+                <option>40代</option>
+                <option>50代以上</option>
+              </select></div>
+            </div>
+            <div class="field">
+              <label for="f-people">参加人数<span class="opt-mark">任意</span></label>
+              <div class="select"><select id="f-people" name="参加人数">
+                <option value="">選択してください</option>
+                <option>1名（一人で参加）</option>
+                <option>2名</option>
+                <option>3名</option>
+                <option>4名以上</option>
+              </select></div>
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-job">職業<span class="opt-mark">任意</span></label>
+            <input type="text" id="f-job" name="職業" autocomplete="organization-title" placeholder="例）営業職、美容師、学生 など">
+          </div>
+          <div class="field">
+            <label for="f-ig">Instagram ID<span class="opt-mark">任意</span></label>
+            <div class="ig-input"><span aria-hidden="true">@</span><input type="text" id="f-ig" name="Instagram ID" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="insup_night"></div>
+          </div>
+          <div class="field">
+            <label for="f-msg">相談したいこと<span class="opt-mark">任意</span></label>
+            <textarea id="f-msg" name="相談したいこと" rows="4" placeholder="例）転職を考えている、業務委託に興味がある など"></textarea>
+          </div>
+
+          <!-- スパム対策（人には見えない欄） -->
+          <input type="text" name="_honey" class="entry-form__honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <p class="entry-form__note">※18歳以上の方が対象です（アルコールは20歳以上）</p>
+          <button type="submit" class="btn btn--cta btn--xl btn--block entry-form__submit">
+            <span class="js-submit-label">この内容で申し込む</span>
+            <svg class="ico ico--arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <p class="entry-form__error" role="alert" hidden></p>
+        </form>
+
+        <div class="entry-done" id="entry-done" tabindex="-1" hidden>
+          <div class="entry-done__icon" aria-hidden="true">✓</div>
+          <h3 class="entry-done__title">お申し込み<wbr>ありがとうございます！</h3>
+          <p class="entry-done__text">内容を確認して、<wbr>Insupからご連絡します。<br>参加条件の3ステップも<wbr>お忘れなく。</p>
+          <a href="#steps" class="btn btn--navy btn--md">参加は簡単3ステップを見る</a>
+        </div>
       </div>
     </section>
   </main>
@@ -552,7 +642,7 @@
       <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
       <span>開催日</span>
     </button>
-    <a href="#apply" class="sticky-cta__apply js-apply" tabindex="-1">
+    <a href="#entry" class="sticky-cta__apply js-apply" tabindex="-1">
       <span class="sticky-cta__small">定員10名・1,000円</span>
       <span class="sticky-cta__main">参加を申し込む</span>
       <svg class="ico ico--arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -573,7 +663,7 @@
         <div><dt>会場</dt><dd>Bar pochi（すすきの）</dd></div>
         <div><dt>参加費</dt><dd>1,000円（飲み放題＆ご飯付き）</dd></div>
       </dl>
-      <a href="#apply" class="btn btn--cta btn--lg btn--block js-apply"><span>この日に申し込む</span><svg class="ico ico--arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="#entry" class="btn btn--cta btn--lg btn--block js-apply"><span>この日に申し込む</span><svg class="ico ico--arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
   </div>
 
