@@ -56,13 +56,13 @@ window.INSUP_NIGHT = {
       name: "佐藤 光",
       role: "CEO（代表取締役社長）",
       comment: "「変わりたい」と思ったその日が、スタートです。気軽に話しましょう！",
-      photo: "assets/img/member-1.webp"
+      photo: "assets/img/member-2.webp"
     },
     {
       name: "佐々木 駿",
       role: "CHRO（最高人事責任者）",
       comment: "職種も年齢もバラバラな人と話すと、世界が一気に広がります。",
-      photo: "assets/img/member-2.webp"
+      photo: "assets/img/member-1.webp"
     },
     {
       name: "倉島 颯汰",
