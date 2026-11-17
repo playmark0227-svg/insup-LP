@@ -1143,69 +1143,6 @@ main section[id] { scroll-margin-top: calc(var(--header-h) - 1px); }
 @media (min-width: 768px) { .final__btns { flex-direction: row; justify-content: center; } .final__btns .btn { width: auto; } }
 .final__note { margin-top: 20px; font-weight: 900; letter-spacing: .1em; }
 
-/* =========================================================
-   申込フォーム
-   ========================================================= */
-.entry { padding: clamp(64px, 10vw, 100px) 0; background: linear-gradient(180deg, #eef4ff 0%, #f7faff 100%); }
-.req-mark, .opt-mark {
-  display: inline-block; margin-left: .6em; padding: .1em .55em; border-radius: 6px;
-  font-size: .7rem; font-weight: 900; letter-spacing: .06em; vertical-align: .12em; line-height: 1.5;
-}
-.req-mark { background: var(--orange); color: #fff; }
-.sec-head__lead .req-mark { margin: 0 .3em 0 0; }
-.opt-mark { background: var(--ice-2); color: var(--muted); }
-.entry-form, .entry-done {
-  display: grid; gap: 20px;
-  padding: clamp(24px, 5vw, 40px);
-  background: #fff; border-radius: 24px; box-shadow: var(--shadow);
-}
-.field { display: grid; gap: 8px; min-width: 0; }
-.field label { font-weight: 900; color: var(--navy); }
-.field input, .field select, .field textarea {
-  width: 100%; min-width: 0;
-  padding: .85em 1em; border: 2px solid var(--line); border-radius: 12px;
-  background: #fbfcff; color: var(--ink);
-  font: 500 16px/1.5 var(--ff);
-  transition: border-color .2s, box-shadow .2s, background .2s;
-}
-.field textarea { resize: vertical; min-height: 7.5em; }
-.field input::placeholder, .field textarea::placeholder { color: #a6b2cc; }
-.field input:focus, .field select:focus, .field textarea:focus {
-  outline: none; border-color: var(--blue); background: #fff; box-shadow: 0 0 0 4px rgba(20, 83, 230, .15);
-}
-.field.is-error input, .field.is-error select { border-color: #e0483e; background: #fff7f6; }
-.field__err { min-height: 0; color: #d03a30; font-size: .82rem; font-weight: 700; }
-.field__err:empty { display: none; }
-.select { position: relative; }
-.select select { appearance: none; -webkit-appearance: none; padding-right: 2.6em; cursor: pointer; }
-.select::after {
-  content: ""; position: absolute; right: 1.1em; top: 50%; width: 8px; height: 8px; margin-top: -6px;
-  border-right: 2.5px solid var(--blue); border-bottom: 2.5px solid var(--blue); transform: rotate(45deg); pointer-events: none;
-}
-.field-row { display: grid; gap: 20px; }
-@media (min-width: 640px) { .field-row { grid-template-columns: 1fr 1fr; } }
-.ig-input { display: flex; align-items: stretch; }
-.ig-input span {
-  display: grid; place-items: center; padding: 0 .9em; border: 2px solid var(--line); border-right: 0; border-radius: 12px 0 0 12px;
-  background: var(--ice); color: var(--blue); font-family: var(--ff-en); font-weight: 800;
-}
-.ig-input input { border-radius: 0 12px 12px 0; }
-.entry-form__divider { display: flex; align-items: center; gap: 12px; color: var(--muted); font-size: .82rem; font-weight: 700; }
-.entry-form__divider::before, .entry-form__divider::after { content: ""; flex: 1; height: 1.5px; background: repeating-linear-gradient(90deg, var(--line) 0 6px, transparent 6px 10px); }
-.entry-form__honey { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
-.entry-form__note { font-size: .82rem; color: var(--muted); text-align: center; }
-.entry-form__submit { margin-top: -4px; }
-.entry-form__error { padding: .8em 1em; border-radius: 12px; background: #fff1ef; color: #c2342a; font-weight: 700; font-size: .9rem; text-align: center; }
-.entry-done { justify-items: center; text-align: center; }
-.entry-done:focus { outline: none; }
-.entry-done__icon {
-  display: grid; place-items: center; width: 72px; height: 72px; border-radius: 50%;
-  background: var(--grad-cta); color: var(--orange-ink); font-size: 2rem; font-weight: 900;
-  animation: easyThree .7s cubic-bezier(.2, 1.6, .4, 1) both;
-}
-.entry-done__title { font-size: clamp(1.3rem, 5vw, 1.6rem); font-weight: 900; color: var(--navy); }
-.entry-done__text { color: #34405c; }
-.entry-done__title, .entry-done__text { word-break: keep-all; overflow-wrap: anywhere; }
 
 /* =========================================================
    Footer

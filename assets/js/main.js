@@ -116,109 +116,19 @@
   }
 
   /* ---------- 申込ボタン ---------- */
-  // 外部フォームURLがあればそちらへ。なければページ内の申込フォームへ移動
+  // 申込ボタン：Googleフォームへ（URL未設定のあいだは「準備中」）
   $$('.js-apply').forEach(function (a) {
     if (C.formUrl) {
       a.setAttribute('href', C.formUrl);
       a.setAttribute('target', '_blank');
       a.setAttribute('rel', 'noopener');
     } else {
-      a.setAttribute('href', '#entry');
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        toast('申込フォームは現在準備中です');
+      });
     }
   });
-
-  /* ---------- 申込フォーム ---------- */
-  var form = $('.js-entry-form');
-  if (form) {
-    // 参加希望日：これからの開催日を選択肢に
-    var dateSel = $('.js-date-select', form);
-    var opts = upcoming.map(function (d) {
-      var label = (d.getMonth() + 1) + '月' + d.getDate() + '日（' + WEEK_JA[d.getDay()] + '）22:00〜';
-      return '<option>' + label + '</option>';
-    });
-    if (!opts.length) opts.push('<option>次回の開催日（決まり次第連絡がほしい）</option>');
-    dateSel.insertAdjacentHTML('beforeend', opts.join(''));
-    if (upcoming.length === 1) dateSel.selectedIndex = 1;
-
-    var F = C.form || {};
-    var errBox = $('.entry-form__error', form);
-    var submitBtn = $('.entry-form__submit', form);
-    var submitLabel = $('.js-submit-label', form);
-
-    var checks = {
-      'f-name': function (v) { return v ? '' : 'お名前を入力してください'; },
-      'f-tel': function (v) {
-        if (!v) return '電話番号を入力してください';
-        var digits = v.replace(/[^\d０-９]/g, '');
-        return digits.length >= 10 && digits.length <= 11 ? '' : '電話番号は10〜11桁の数字で入力してください';
-      },
-      'f-email': function (v, el) {
-        if (!v) return 'メールアドレスを入力してください';
-        return el.validity.typeMismatch ? 'メールアドレスの形式が正しくありません' : '';
-      },
-      'f-date': function (v) { return v ? '' : '参加希望日を選択してください'; }
-    };
-    function check(id) {
-      var el = document.getElementById(id);
-      var msg = checks[id](el.value.trim(), el);
-      var box = document.getElementById(id + '-err');
-      box.textContent = msg;
-      el.closest('.field').classList.toggle('is-error', !!msg);
-      el.setAttribute('aria-invalid', msg ? 'true' : 'false');
-      if (msg) el.setAttribute('aria-describedby', id + '-err'); else el.removeAttribute('aria-describedby');
-      return !msg;
-    }
-    Object.keys(checks).forEach(function (id) {
-      var el = document.getElementById(id);
-      el.addEventListener('blur', function () { if (el.value) check(id); });
-      el.addEventListener('input', function () { if (el.closest('.field').classList.contains('is-error')) check(id); });
-      el.addEventListener('change', function () { if (el.tagName === 'SELECT') check(id); });
-    });
-
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      errBox.hidden = true;
-      var firstBad = null;
-      Object.keys(checks).forEach(function (id) { if (!check(id) && !firstBad) firstBad = id; });
-      if (firstBad) { document.getElementById(firstBad).focus(); return; }
-      if (!F.to) { errBox.textContent = '送信先が設定されていません（config.js の form.to）'; errBox.hidden = false; return; }
-
-      var data = {};
-      new FormData(form).forEach(function (v, k) { data[k] = String(v).trim(); });
-      if (data._honey) return; // スパム
-      if (data['Instagram ID']) data['Instagram ID'] = '@' + data['Instagram ID'].replace(/^@/, '');
-      Object.keys(data).forEach(function (k) { if (!data[k] && k !== '_honey') data[k] = '（未入力）'; });
-      data._subject = (F.subject || '【Insup Night】参加申込') + '：' + data['お名前'] + ' 様（' + data['参加希望日'] + '）';
-      data._replyto = data['メールアドレス'];
-      data._template = 'table';
-      data._captcha = 'false';
-      if (F.cc && F.cc.length) data._cc = F.cc.join(',');
-
-      submitBtn.disabled = true;
-      submitLabel.textContent = '送信中…';
-      fetch('https://formsubmit.co/ajax/' + encodeURIComponent(F.to), {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(data)
-      }).then(function (r) { return r.json().catch(function () { return {}; }); })
-        .then(function (res) {
-          if (String(res.success) !== 'true') throw new Error(res.message || 'failed');
-          form.hidden = true;
-          var done = $('#entry-done');
-          done.hidden = false;
-          done.focus();
-          done.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
-        })
-        .catch(function () {
-          errBox.textContent = '送信できませんでした。通信環境をご確認のうえ、もう一度お試しください。';
-          errBox.hidden = false;
-        })
-        .then(function () {
-          submitBtn.disabled = false;
-          submitLabel.textContent = 'この内容で申し込む';
-        });
-    });
-  }
 
   /* ---------- MENU（目次） ---------- */
   var menu = $('#site-menu');
@@ -412,15 +322,14 @@
       pastHero = !en[0].isIntersecting && en[0].boundingClientRect.top < 0;
       updateSticky();
     }).observe(heroCta);
-    // 最後の申込エリア・申込フォームが見えている間は追従ボタンを隠す
+    // 最後の申込エリアが見えている間は追従ボタンを隠す
     var seen = {};
     var endIo = new IntersectionObserver(function (en) {
       en.forEach(function (x) { seen[x.target.id] = x.isIntersecting; });
-      atFinal = !!(seen.apply || seen.entry);
+      atFinal = !!seen.apply;
       updateSticky();
     }, { threshold: 0.05 });
     endIo.observe(finalSec);
-    if ($('#entry')) endIo.observe($('#entry'));
   }
   window.addEventListener('scroll', function () {
     header.classList.toggle('is-scrolled', window.scrollY > 10);
