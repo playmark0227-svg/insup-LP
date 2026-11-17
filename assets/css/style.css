@@ -469,6 +469,32 @@ main section[id] { scroll-margin-top: calc(var(--header-h) - 1px); }
   font-size: clamp(1.7rem, 6vw, 2.6rem); font-weight: 900; line-height: 1.4; color: var(--navy);
 }
 .sec-head__lead { margin-top: 18px; color: var(--muted); font-size: clamp(.92rem, 3.2vw, 1.05rem); }
+
+/* 「できること」見出し：光のスキャン＋3つのチップ */
+.scan-head__title {
+  background: linear-gradient(100deg, var(--navy) 0 40%, var(--cyan) 48%, #c9d6ee 56% 100%);
+  background-size: 260% 100%; background-position: 100% 0;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.scan-head__chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 16px; }
+.scan-head__chips li {
+  padding: .45em 1.05em; border-radius: 999px;
+  background: var(--navy); color: #fff; font-weight: 900; font-size: clamp(.82rem, 3.2vw, .95rem);
+  box-shadow: var(--shadow-s);
+  opacity: 0;
+}
+.scan-head__chips li:nth-child(2) { background: var(--blue); }
+.scan-head__chips li:nth-child(3) { background: var(--sky); }
+.scan-head .sec-head__lead { opacity: 0; }
+.scan-head.is-in .scan-head__title { animation: scanText 1.3s cubic-bezier(.5, 0, .2, 1) .35s forwards; }
+.scan-head.is-in .scan-head__chips li { animation: chipIn .6s cubic-bezier(.2, 1.5, .4, 1) both; animation-delay: calc(1.45s + var(--i) * .15s); }
+.scan-head.is-in .sec-head__lead { animation: kvFade .6s ease 2.05s both; }
+@keyframes scanText { to { background-position: 0 0; } }
+@keyframes chipIn { 0% { opacity: 0; transform: translateY(18px) scale(.6); } 100% { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .scan-head__title { background-position: 0 0; }
+  .scan-head__chips li, .scan-head .sec-head__lead { opacity: 1; }
+}
 .sec-head--light .sec-head__en { color: var(--cyan); }
 .sec-head--light .sec-head__ja { color: #fff; }
 .sec-head--light .sec-head__lead { color: #c8d7f5; }
