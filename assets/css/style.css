@@ -378,7 +378,7 @@ main section[id] { scroll-margin-top: calc(var(--header-h) - 1px); }
   .kv-from { margin-top: 12px; font-size: 1.9rem; }
   .hero__catch { margin-top: 10px; }
   .hero__catch-sub { margin-top: 4px; font-size: 1.15rem; }
-  .hero__visual { max-width: 600px; margin-top: 16px; }
+  .hero__visual { max-width: 500px; margin-top: 14px; }
   .hero__band { padding: .55em 1em; font-size: 1.3rem; }
   .hero__badges { margin-top: 16px; max-width: 640px; }
   .badge { padding: 8px; }
