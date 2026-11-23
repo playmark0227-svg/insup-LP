@@ -22,14 +22,44 @@
   }
   var today = new Date(); today.setHours(0, 0, 0, 0);
 
-  var dates = (C.dates || []).map(parseDate).filter(Boolean).sort(function (a, b) { return a - b; });
-  var upcoming = dates.filter(function (d) { return d >= today; });
-  var next = upcoming[0] || null;
+  // 開催日 = ルール（第1・第3木曜日）の自動計算 ＋ 特別回 − お休み
+  function nthWeekday(y, m, wd, n) {
+    var first = new Date(y, m, 1).getDay();
+    var day = 1 + ((wd - first + 7) % 7) + (n - 1) * 7;
+    var d = new Date(y, m, day);
+    return d.getMonth() === m ? d : null;
+  }
+  function key(d) { return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate(); }
+  var skip = {};
+  (C.skipDates || []).map(parseDate).filter(Boolean).forEach(function (d) { skip[key(d)] = 1; });
+  var all = {};
+  (C.dates || []).map(parseDate).filter(Boolean).forEach(function (d) { all[key(d)] = d; });
+  var R = C.schedule;
+  if (R && R.weeks && R.weeks.length) {
+    var start = parseDate(R.startFrom) || today;
+    var from = start > today ? start : today;
+    var y = from.getFullYear(), m = from.getMonth();
+    for (var i = -1; i < 6; i++) {          // 先月〜半年先まで
+      var mm = m + i, yy = y + Math.floor(mm / 12); mm = ((mm % 12) + 12) % 12;
+      R.weeks.forEach(function (n) {
+        var d = nthWeekday(yy, mm, R.weekday == null ? 4 : R.weekday, n);
+        if (d && d >= start) all[key(d)] = d;
+      });
+    }
+  }
+  var events = Object.keys(all).map(function (k) { return all[k]; })
+    .filter(function (d) { return !skip[key(d)]; })
+    .sort(function (a, b) { return a - b; });
 
-  // 見出しの「◯年◯月」：設定された日付の月（なければ今月）
-  var base = dates[0] || today;
+  // 今月の開催日 と、その次（来月以降）の開催日
+  var dates = events.filter(function (d) { return d.getFullYear() === today.getFullYear() && d.getMonth() === today.getMonth(); });
+  var upcoming = events.filter(function (d) { return d >= today; });
+  var next = upcoming[0] || null;
+  var thisMonthUpcoming = dates.some(function (d) { return d >= today; });
+  var after = events.filter(function (d) { return d >= today && (d.getFullYear() * 12 + d.getMonth()) > (today.getFullYear() * 12 + today.getMonth()); })[0] || null;
+
   $$('.js-month-label').forEach(function (el) {
-    el.textContent = base.getFullYear() + '年' + (base.getMonth() + 1) + '月';
+    el.textContent = today.getFullYear() + '年' + (today.getMonth() + 1) + '月';
   });
 
   // 次回開催
@@ -42,20 +72,27 @@
     }
   });
 
-  // 開催日リスト
+  function dateItem(d) {
+    var done = d < today;
+    return '<li class="date-item' + (done ? ' is-done' : '') + '">' +
+      '<span class="date-item__day"><b>' + (d.getMonth() + 1) + '/' + d.getDate() + '</b>（' + WEEK_JA[d.getDay()] + '）</span>' +
+      '<span class="date-item__time">22:00〜24:00</span>' +
+      '<span class="date-item__status">' + (done ? '開催終了' : '受付中') + '</span>' +
+      '</li>';
+  }
+
+  // 今月の開催日リスト
   $$('.js-date-list').forEach(function (ul) {
-    if (!dates.length) {
-      ul.innerHTML = '<li class="date-item date-item--empty">開催日は近日公開予定です</li>';
-      return;
-    }
-    ul.innerHTML = dates.map(function (d) {
-      var done = d < today;
-      return '<li class="date-item' + (done ? ' is-done' : '') + '">' +
-        '<span class="date-item__day"><b>' + (d.getMonth() + 1) + '/' + d.getDate() + '</b>（' + WEEK_JA[d.getDay()] + '）</span>' +
-        '<span class="date-item__time">22:00〜24:00</span>' +
-        '<span class="date-item__status">' + (done ? '開催終了' : '受付中') + '</span>' +
-        '</li>';
-    }).join('');
+    ul.innerHTML = dates.length ? dates.map(dateItem).join('')
+      : '<li class="date-item date-item--empty">今月の開催はありません</li>';
+  });
+
+  // その次の開催日（来月以降の直近1回）
+  $$('.js-next-block').forEach(function (box) {
+    if (!after) { box.hidden = true; return; }
+    $('.js-next-label', box).textContent = thisMonthUpcoming ? 'その次の開催日' : '次回の開催日';
+    $('.js-next-list', box).innerHTML = dateItem(after);
+    box.hidden = false;
   });
 
   $$('.js-regular').forEach(function (el) { el.textContent = C.regularSchedule || ''; });

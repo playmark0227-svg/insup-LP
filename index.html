@@ -422,8 +422,12 @@
 
         <div class="info__grid reveal">
           <div class="info-card info-card--date">
-            <p class="info-card__label">今月の開催日</p>
+            <p class="info-card__label">開催日</p>
             <ul class="date-list js-date-list"></ul>
+            <div class="date-next js-next-block" hidden>
+              <p class="date-next__label js-next-label">その次の開催日</p>
+              <ul class="date-list js-next-list"></ul>
+            </div>
             <p class="info-card__sub js-regular"></p>
           </div>
           <div class="info-card info-card--price">
@@ -492,7 +496,7 @@
           </details>
           <details class="faq-item">
             <summary>開催日はいつですか？</summary>
-            <p>月2回、木曜日の22:00〜24:00に開催しています。今月の開催日は「今月の開催日」ボタンからご確認ください。</p>
+            <p>毎月第1・第3木曜日の22:00〜24:00に開催しています。開催日は「今月の開催日」ボタンからご確認ください。</p>
           </details>
         </div>
       </div>
@@ -567,6 +571,10 @@
       <p class="modal__en">SCHEDULE</p>
       <h2 class="modal__title" id="modal-title"><span class="js-month-label"></span>の開催日</h2>
       <ul class="date-list date-list--modal js-date-list"></ul>
+      <div class="date-next js-next-block" hidden>
+        <p class="date-next__label js-next-label">その次の開催日</p>
+        <ul class="date-list js-next-list"></ul>
+      </div>
       <p class="modal__regular js-regular"></p>
       <dl class="modal__meta">
         <div><dt>時間</dt><dd>22:00〜24:00</dd></div>
