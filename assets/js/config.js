@@ -38,7 +38,7 @@ window.INSUP_NIGHT = {
      例） formUrl: "https://forms.gle/xxxxxxxx",
      ※Googleフォームの「参加希望日」の選択肢も、開催日に合わせて更新してください
      --------------------------------------------- */
-  formUrl: "",
+  formUrl: "https://forms.gle/qxymyeDT9qMzMCbM6",
 
 
   /* ---------------------------------------------
