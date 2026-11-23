@@ -16,7 +16,8 @@ HTML / CSS / JavaScript だけで動く静的サイトです（ビルド不要�
 | キャンセル規定を表示する | `cancelPolicy` に文章を入れる。開催概要の下に「※」付きで表示される。 |
 | 参加者の声を入れる | `voices` の `title` / `text` / `name` / `profile` / `photo` に入力する。空欄のあいだは「インタビュー準備中」と表示される。 |
 | メンバー紹介を変える | `members` の `name` / `role` / `comment` / `photo` を書き換える |
-| ストーリーズ用の画像を差し替える | `assets/img/` に画像を入れて、`storyImage` のファイル名を書き換える |
+| ストーリーズ用画像の「次回」の日付を更新する | `node tools/story-image/render.js` を実行する。config.js の開催日から次回を計算し、`assets/img/insup-night-flyer.jpg` と `insup-night-flyer-thumb.jpg` を作り直す（Playwright が必要）。 |
+| ストーリーズ用の画像を別の画像に差し替える | `assets/img/` に画像を入れて、`storyImage` のファイル名を書き換える |
 
 ## ファイル構成
 
